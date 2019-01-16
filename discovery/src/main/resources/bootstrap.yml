@@ -1,0 +1,50 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: discovery
+
+eureka:
+  instance:
+    hostname: localhost
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 30
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  server:
+    enable-self-preservation: true
+
+endpoints:
+  shutdown:
+    enabled: true
+
+--- #cloud
+spring:
+  profiles: cloud
+  application:
+    name: discovery
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: discovery
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 30
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+  server:
+    enable-self-preservation: false
+
+endpoints:
+  shutdown:
+    enabled: true
