@@ -13,6 +13,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
         <spring-cloud-starter-netflix-eureka.version>1.4.6.RELEASE</spring-cloud-starter-netflix-eureka.version>
+        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
     </properties>
 
     <modules>
